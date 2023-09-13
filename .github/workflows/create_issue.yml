@@ -1,0 +1,13 @@
+name: Create Fake Issue
+
+on: [workflow_dispatch, push]
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+      - uses: actions@checkout@v3
+      - name: Execute Script
+        working-directory: notifications
+        run: python derp.py
