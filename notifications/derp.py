@@ -1,18 +1,23 @@
+import click
 import random
 import string
 
-def generate_jira_issue():
-    # Generate a random 2-3 letter combination
-    letters = ''.join(random.choice(string.ascii_uppercase) for _ in range(random.randint(2, 3)))
 
-    # Generate a random 4-5 number combination
-    numbers = ''.join(random.choice(string.digits) for _ in range(random.randint(4, 5)))
+def generate_jira_issue(prefix):
+    # Generate a random 4-digit number combination
+    numbers = ''.join(random.choice(string.digits) for _ in range(4))
 
-    # Combine the letter and number combinations with a hyphen
-    issue_key = f"{letters}-{numbers}"
+    # Combine the user-defined prefix and the number combination with a hyphen
+    issue_key = f"{prefix}-{numbers}"
 
     return issue_key
 
-# Generate and print a random Jira issue key
-random_issue = generate_jira_issue()
-print(random_issue)
+
+@click.command()
+@click.option("--prefix", help='User-defined prefix for the Jira issue', required=True)
+def main(prefix):
+        random_issue = generate_jira_issue(prefix.upper())
+        print(random_issue)
+
+if __name__ == '__main__':
+    main()
