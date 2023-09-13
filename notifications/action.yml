@@ -8,5 +8,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: python ${GITHUB_ACTION_PATH}/derp.py --prefix="${{ inputs.prefix }}"
+    - run: python ${GITHUB_ACTION_PATH}/derp.py --prefix="${{ inputs.prefix }}" >> $GITGUB_OUTPUT
       shell: bash
