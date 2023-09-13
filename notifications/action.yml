@@ -1,0 +1,12 @@
+name: "Notification - Create Derp"
+description: "Create a Derp notification for a specific team"
+inputs:
+  prefix:
+    description: "Prefix of the Team"
+    required: True
+
+runs:
+  using: "composite"
+  steps:
+    - run: python ${GITHUB_ACTION_PATH}/derp.py --prefix="${{ inputs.prefix }}
+      shell: bash
