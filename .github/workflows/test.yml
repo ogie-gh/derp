@@ -15,8 +15,7 @@ jobs:
       id: create-issue
       working-directory: scripts
       run: |
-        chmod a+x set_env.sh
-        ./set_env.sh
+        python set_env.py
 
   job2:
     needs: create-issue
