@@ -13,8 +13,9 @@ def generate_jira_issue(prefix):
 
     return issue_key
 
-def set_env(issue_key):
-    os.environ["GITHUB_OUTPUT"] = f'issue={issue_key}'
+def set_env(key):
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        print(f'issue={key}', file=fh)
 
 @click.command()
 @click.option("--prefix", help='User-defined prefix for the Jira issue', required=True)
