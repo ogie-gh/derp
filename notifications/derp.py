@@ -1,4 +1,5 @@
 import click
+import os
 import random
 import string
 
@@ -12,12 +13,15 @@ def generate_jira_issue(prefix):
 
     return issue_key
 
+def set_env(issue_key):
+    os.environ["GITHUB_OUTPUT"] = f'issue={issue_key}'
 
 @click.command()
 @click.option("--prefix", help='User-defined prefix for the Jira issue', required=True)
 def main(prefix):
         random_issue = generate_jira_issue(prefix.upper())
         print(random_issue)
+        set_env(random_issue)
 
 if __name__ == '__main__':
     main()
