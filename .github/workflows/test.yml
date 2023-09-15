@@ -3,13 +3,21 @@ name: Testing stuff
 on: [workflow_dispatch, push]
 
 jobs:
-  test:
+  create-issue:
     runs-on: ubuntu-latest
-    outputs: 
-      issue: ${{ steps.test.outputs.issue }}
+    outputs:
+      myoutput: ${{ steps.issue.outputs.issue }}
+    
     steps:
-      - name: set output
-        run: echo "issue=TST-3460" >> "$GITHUB_OUTPUT"
-      
-      - name: check output
-        run: ${{ steps.test.outputs.issue }}
+    - name: set output
+      id: issue
+      run: |
+         echo "issue=TST-3460" >> "$GITHUB_OUTPUT"
+
+  report-issue:
+    runs-on: ubuntu-latest
+    needs: create-issue
+    steps:
+    - name: retrieve output
+      run: |
+        echo ${{ needs.create-issue.outputs.issue }}
