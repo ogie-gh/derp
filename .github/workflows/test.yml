@@ -15,7 +15,7 @@ jobs:
       id: create-issue
       working-directory: notifications
       run: |
-        python derp.py
+        python derp.py --prefix TST
 
   job2:
     needs: create-issue
