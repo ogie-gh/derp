@@ -1,4 +1,7 @@
 import os
 
-# Set an environment variable named "GITHUB_OUTPUT" with the value of RESULT
-os.environ["GITHUB_OUTPUT"] = "issue=TST-3060"
+def set_output(name, value):
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        print(f'{name}={value}', file=fh)
+
+set_output(issue, TST-3060)
