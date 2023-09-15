@@ -3,21 +3,21 @@ name: Testing stuff
 on: [workflow_dispatch, push]
 
 jobs:
-  create-issue:
+  job1:
     runs-on: ubuntu-latest
     outputs:
-      myoutput: ${{ steps.issue.outputs.issue }}
+      myoutput: ${{ steps.step1.outputs.myoutput }}
     
     steps:
     - name: set output
-      id: issue
+      id: step1
       run: |
-         echo "issue=TST-3460" >> "$GITHUB_OUTPUT"
+        echo "myoutput='hello world'" >> $GITHUB_OUTPUT
 
-  report-issue:
+  job2:
+    needs: job1
     runs-on: ubuntu-latest
-    needs: create-issue
     steps:
     - name: retrieve output
       run: |
-        echo ${{ needs.create-issue.outputs.issue }}
+        echo ${{ needs.job1.outputs.myoutput }}
