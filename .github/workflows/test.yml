@@ -11,8 +11,8 @@ jobs:
     steps:
     - name: set output
       id: create-issue
-      run: |
-        echo "issue=TST-3060" >> $GITHUB_OUTPUT
+      working-directory: scripts
+      run: set_env.sh
 
   job2:
     needs: create-issue
