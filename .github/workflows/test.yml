@@ -20,4 +20,4 @@ jobs:
     steps:
     - name: retrieve output
       run: |
-        echo ${{ needs.job1.outputs.issue }}
+        echo ${{ needs.create-issue.outputs.issue }}
