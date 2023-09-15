@@ -3,7 +3,7 @@ name: Testing stuff
 on: [workflow_dispatch, push]
 
 jobs:
-  job1:
+  create-issue:
     runs-on: ubuntu-latest
     outputs:
       issue: ${{ steps.create-issue.outputs.myoutput }}
@@ -15,7 +15,7 @@ jobs:
         echo "myoutput=TST-3060" >> $GITHUB_OUTPUT
 
   job2:
-    needs: job1
+    needs: create-issue
     runs-on: ubuntu-latest
     steps:
     - name: retrieve output
