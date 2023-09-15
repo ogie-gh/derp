@@ -12,7 +12,7 @@ jobs:
     - name: set output
       id: create-issue
       working-directory: scripts
-      run: set_env.sh
+      run: ./set_env.sh
 
   job2:
     needs: create-issue
