@@ -14,7 +14,9 @@ jobs:
     - name: set output
       id: create-issue
       working-directory: scripts
-      run: ./set_env.sh
+      run: |
+        chmod a+x set_env.sh
+        ./set_env.sh
 
   job2:
     needs: create-issue
