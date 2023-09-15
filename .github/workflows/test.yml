@@ -12,7 +12,7 @@ jobs:
     - name: set output
       id: step1
       run: |
-        echo "myoutput='hello world'" >> $GITHUB_OUTPUT
+        echo "myoutput=TST-3060" >> $GITHUB_OUTPUT
 
   job2:
     needs: job1
