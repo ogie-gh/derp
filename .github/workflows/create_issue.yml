@@ -1,6 +1,6 @@
 name: Create Fake Issue
 
-on: [workflow_dispatch, push]
+on: [workflow_dispatch]
 
 jobs:
   create-issue:
