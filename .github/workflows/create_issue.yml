@@ -11,5 +11,6 @@ jobs:
       - name: Execute Script
         working-directory: notifications
         run: python derp.py --prefix TST
+        id: create
       - name: Check Output
-        run: echo "$GITHUB_OUTPUT"
+        run: echo ${{ steps.create-issue.create.issue }}
