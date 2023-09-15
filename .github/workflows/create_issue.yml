@@ -11,3 +11,5 @@ jobs:
       - name: Execute Script
         working-directory: notifications
         run: python derp.py --prefix TST
+      - name: Check Output
+        run: echo "$GITHUB_OUTPUT"
