@@ -4,9 +4,14 @@ inputs:
   prefix:
     description: "Prefix of the Team"
     required: True
+outputs:
+  derp-key:
+    descrption: The key generated when calling derp
+    value: ${{ steps.create_derp.outputs.stdout }}
 
 runs:
   using: "composite"
   steps:
     - run: python ${GITHUB_ACTION_PATH}/derp.py --prefix="${{ inputs.prefix }}"
       shell: bash
+      id: create_derp
