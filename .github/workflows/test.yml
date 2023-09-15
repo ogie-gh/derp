@@ -5,7 +5,8 @@ on: [workflow_dispatch, push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs: ${{ steps.test.outputs.issue }}
+    outputs: 
+      issue: ${{ steps.test.outputs.issue }}
     steps:
       - name: set output
         run: echo "issue=TST-3460" >> "$GITHUB_OUTPUT"
