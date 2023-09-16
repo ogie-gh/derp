@@ -18,4 +18,4 @@ jobs:
         python derp.py --prefix TST
     - name: Echo Output in a step
       run: |
-        echo ${{ needs.create-issue.outputs.issue }}
+        echo ${{ steps.create-issue.outputs.issue }}
