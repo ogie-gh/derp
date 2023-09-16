@@ -1,0 +1,21 @@
+name: Testing Output in Steps
+
+on: [workflow_dispatch]
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    outputs:
+      issue: ${{ steps.create-issue.outputs.issue }}
+    
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3 
+    - name: set output
+      id: create-issue
+      working-directory: notifications
+      run: |
+        python derp.py --prefix TST
+    - name: Echo Output in a step
+      run: |
+        echo ${{ needs.create-issue.outputs.issue }}
