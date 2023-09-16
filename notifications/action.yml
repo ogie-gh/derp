@@ -6,7 +6,7 @@ inputs:
     required: True
 outputs:
   derp-key:
-    descrption: The key generated when calling derp
+    description: The key generated when calling derp
     value: ${{ steps.create_derp.outputs.stdout }}
 
 runs:
