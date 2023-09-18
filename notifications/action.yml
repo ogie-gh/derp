@@ -19,10 +19,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: >-
-      python ${GITHUB_ACTION_PATH}/derp.py 
-      --prefix="${{ inputs.prefix }}"
-      --summary="${{ inputs.summary }}"
-      --description="${{ inputs.description }}"
+    - run: python ${GITHUB_ACTION_PATH}/derp.py --prefix="${{ inputs.prefix }}" --summary="${{ inputs.summary }}" --description="${{ inputs.description }}"
       shell: bash
       id: create_derp
