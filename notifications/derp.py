@@ -23,7 +23,7 @@ def set_env(key):
 @click.option("--description", help="Description field contents", required=True)
 def main(prefix, summary, description):
         random_issue = generate_jira_issue(prefix.upper())
-        print(random_issue, summary, message)
+        print(random_issue, summary, description)
         set_env(random_issue)
 
 if __name__ == '__main__':
