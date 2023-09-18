@@ -21,9 +21,9 @@ def set_env(key):
 @click.option("--prefix", help='User-defined prefix for the Jira issue', required=True)
 @click.option("--summary", help="Summary of the issue to be created", required=True)
 @click.option("--description", help="Description field contents", required=True)
-def main(prefix):
+def main(prefix, summary, description):
         random_issue = generate_jira_issue(prefix.upper())
-        print(random_issue)
+        print(random_issue, summary, message)
         set_env(random_issue)
 
 if __name__ == '__main__':
