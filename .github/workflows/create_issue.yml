@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Execute Script
         working-directory: notifications
-        run: python derp.py --prefix TST --summmary "This is a test" --description "this is the description"
+        run: python derp.py --prefix TST --summary "This is a test" --description "this is the description"
         id: create
       - name: Check Output
         run: echo ${{ steps.create-issue.create.issue }}
