@@ -4,6 +4,14 @@ inputs:
   prefix:
     description: "Prefix of the Team"
     required: True
+  summary:
+    description: "Summary of the Issue"
+    required: True
+  description:
+    description: "Description field of the issue"
+    required: True
+
+    
 outputs:
   derp-key:
     description: The key generated when calling derp
