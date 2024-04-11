@@ -1,0 +1,24 @@
+name: "Notification - TEST Secrets"
+description: "Testing secrest with creation"
+inputs:
+  json-input:
+    description: "Prefix of the Team"
+    required: True
+  auth-token:
+    description: "Secret for auth-token"
+    required: True
+  auth-user:
+    description: "secret for auth-user"
+    required: True
+
+outputs:
+  derp-key:
+    description: The key generated when calling derp
+    value: ${{ steps.create_derp.outputs.issue }}
+
+runs:
+  using: "composite"
+  steps:
+    - run: python ${GITHUB_ACTION_PATH}/derp.py --json-input="${{ inputs.json-input }}" --auth-token="${{ inputs.auth-token }}" --auth-user="${{ inputs.auth-user }}"
+      shell: bash
+      id: create_derp
