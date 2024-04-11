@@ -5,11 +5,9 @@ import string
 import json
 
 @click.command()
-@click.option("--json-input", help='json input', required=True)
 @click.option("--auth-token", help="token for auth", required=True)
 @click.option("--auth-user", help="user for auth", required=True)
-def main(json_input, auth_token, auth_user):
-  print(json_input)
+def main(auth_token, auth_user):
   print(auth_token)
   print(auth_user)
 
