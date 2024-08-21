@@ -1,10 +1,12 @@
-[
-  {
-    "account": "test-1",
-    "account_id": "12345"
-  },
-  {
-    "account": "test-2",
-    "account_id": "45678"
-  }
-]
+{
+    "include": [
+    {
+        "account": "test-1",
+        "account_id": "12345"
+    },
+    {
+        "account": "test-2",
+        "account_id": "45678"
+    }
+    ]
+}
