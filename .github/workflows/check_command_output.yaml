@@ -23,4 +23,7 @@ jobs:
         run: |
           echo "MATRIX_JSON=$(jq -c . < config/matrix.json)" >> $GITHUB_ENV
       - name: Check YQ var
-        run: echo $MATRIX_JSON
+        run: |
+          echo $MATRIX_JSON
+          echo ${{ fromJson(env.MATRIX_JSON).account }}
+
