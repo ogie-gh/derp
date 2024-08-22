@@ -13,8 +13,8 @@ jobs:
       - name: Check YQ command
 #        run: echo "matrix=$(jq -c . < derp/config/matrix.json)" >> $GITHUB_ENV
         run: |
-          yq -p yaml -o json -I=0 derp/config/matrix.yaml
+          yq -p yaml -o json -I=0 config/matrix.yaml
 
       - name: Check JSON command
         run: |
-          jq -c . < derp/config/matrix.json
+          jq -c . < config/matrix.json
