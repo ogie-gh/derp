@@ -1,0 +1,20 @@
+name: Check output of YQ command
+on:
+  workflow_dispatch:
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout matrix repo
+        uses: actions/checkout@v4
+        
+      - name: Check YQ command
+#        run: echo "matrix=$(jq -c . < derp/config/matrix.json)" >> $GITHUB_ENV
+        run: |
+          yq -p yaml -o json -I=0 derp/config/matrix.yaml
+
+      - name: Check JSON command
+        run: |
+          jq -c . < derp/config/matrix.json
