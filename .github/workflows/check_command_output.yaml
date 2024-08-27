@@ -27,3 +27,9 @@ jobs:
           echo $MATRIX_JSON
           echo ${{ fromJson(env.MATRIX_JSON).account }}
 
+      - name: Check YQ command
+#        run: echo "matrix=$(yq -p yaml -o json -I=0 config/matrix.yaml)" >> $GITHUB_ENV
+      - name: Check matrix
+         run: |
+           echo $matrix
+           echo ${{ env.matrix }}
